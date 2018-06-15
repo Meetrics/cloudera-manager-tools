@@ -1,5 +1,7 @@
 #python
 *.pyc
+build
+dist
 .env
 *.egg-info
 
