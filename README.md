@@ -1,5 +1,5 @@
-# cloudera-tools
-Cloudera Manager scripts to easily perform common operations using its API interface.
+# cloudera-manager-tools
+Cloudera Manager CLI utility to easily perform common operations using its API interface.
 
 # Setup
 
