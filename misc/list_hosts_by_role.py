@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 
-# Get a handle to the API client
-from cm_api.api_client import ApiResource
+# Cloudera Manager API client
+try:
+    from cm_api.api_client import ApiResource
+except Exception, e:
+    print 'Failed to import Cloudera Manager API Client:',e
+    exit(1)
+
 from datetime import datetime, timedelta
 from collections import defaultdict
 from os import path
