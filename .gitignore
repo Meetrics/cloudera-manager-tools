@@ -1,4 +1,5 @@
 #python
+*.pyc
 .env
 *.egg-info
 
