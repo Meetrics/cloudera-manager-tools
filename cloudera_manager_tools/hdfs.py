@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 
-import sys
-from os import path
-from cm_api.api_client import ApiResource
-
-class CmHdfs:
+class Hdfs:
   
   _cm_client = None
 
@@ -54,23 +50,3 @@ class CmHdfs:
     cmdlist = hdfs.restart_roles( map(lambda dn: dn.name, self.__hdfs_datanodes()) )
     for cmd in cmdlist:
       cmd.wait()
-
-if __name__ == '__main__':
- # TODO: dirty, modularize
- try:
-   cm_host = sys.argv[1]
-   cm_port = int(sys.argv[2])
-   cm_usr = sys.argv[3]
-   cm_pwd = sys.argv[4]
-   hdfs_action = sys.argv[5]
- except:
-    print("""Usage: %s HOST PORT USERNAME PASSWORD ACTION
-Perform action on the HDFS service.
-
-ACTION: can be one of health, datanodes-health, rolling-restart
-""" % path.basename(sys.argv[0]))
-    exit(1)
-  
- cmHdfs = CmHdfs( ApiResource(cm_host, username=cm_usr, password=cm_pwd, server_port=cm_port) )
- res = getattr(cmHdfs, hdfs_action.replace('-','_'))()
- if(res): print res

@@ -4,7 +4,7 @@ import sys
 from os import path
 from cm_api.api_client import ApiResource
 
-class CmMisc:
+class Misc:
 
   _cm_client = None
 
@@ -53,23 +53,3 @@ class CmMisc:
       hostnames_roles[host_ids_names_dict[hostid]] = role
     
     return hostnames_roles
-
-if __name__ == '__main__':
- # TODO: dirty, modularize
- try:
-   cm_host = sys.argv[1]
-   cm_port = int(sys.argv[2])
-   cm_usr = sys.argv[3]
-   cm_pwd = sys.argv[4]
-   misc_action = sys.argv[5]
- except:
-    print("""Usage: %s HOST PORT USERNAME PASSWORD ACTION
-Perform miscellaneous actions on Cloudera.
-
-ACTION: hosts-role
-""" % path.basename(sys.argv[0]))
-    exit(1)
-
- cmMisc = CmMisc( ApiResource(cm_host, username=cm_usr, password=cm_pwd, server_port=cm_port) )
- res = getattr(cmMisc, misc_action.replace('-','_'))()
- if(res): print res
