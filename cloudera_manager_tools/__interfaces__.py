@@ -20,5 +20,7 @@ class AbsCmtServiceModule( AbsCmtModule ):
     def _svc_type(self):
         pass
     
+    # TODO: for now we assume we have one service at max for each service type
     def _get_service(self):
-        return self._get_cluster().get_service(self._svc_type, self._cluster)
+	svcs = [svc for svc in self._get_cluster().get_all_services() if svc.type == self._svc_type]
+	return svcs[0] if len(svcs) else None
