@@ -3,7 +3,9 @@
 from cloudera_manager_tools.__interfaces__ import AbsCmtModule
 
 class Misc( AbsCmtModule ):
-  
+
+  _cmt_description = "Perform different operations on Cloudera"
+
   # PUBLIC CMT ACTIONS
   
   def hosts_role(self):

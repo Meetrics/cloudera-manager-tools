@@ -2,10 +2,11 @@
 
 from cloudera_manager_tools.__interfaces__ import AbsCmtServiceModule
 
-class Spark( AbsCmtServiceModule ):
+class Spark2( AbsCmtServiceModule ):
   
-  _svc_type = 'SPARK2_ON_YARN'
-  
+  _cmt_svc_type = 'SPARK2_ON_YARN'
+  _cmt_description = "Perform different operations on the SPARK 2 service"
+
   # PUBLIC CMT ACTIONS
   
   def gateways(self):

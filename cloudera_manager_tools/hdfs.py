@@ -4,12 +4,13 @@ from cloudera_manager_tools.__interfaces__ import AbsCmtServiceModule
 
 class Hdfs( AbsCmtServiceModule ):
   
-  _svc_type = 'HDFS'
+  _cmt_svc_type = 'HDFS'
+  _cmt_description = "Perform different operations on the HDSF service"
   
   def _get_datanodes(self):
     return self._get_service().get_roles_by_type('DATANODE')
   
-  # PUBLIC ACTIONS
+  # PUBLIC CMT ACTIONS
   
   def health(self):
     return self._get_service().healthChecks
