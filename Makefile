@@ -27,5 +27,8 @@ devuninstall devu:
 	python setup.py develop --uninstall
 	sudo rm -f $(shell which cmt)
 
+devtodo:
+	@grep --color=always -rn 'TODO' ${PROJ_NAME}
+
 clean:
-	sudo rm -rf *.egg-info .env dist build
+	rm -rf *.egg-info .env dist build

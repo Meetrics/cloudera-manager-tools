@@ -1,5 +1,7 @@
 import abc
 
+# TODO: implement SERVICE and ACTION descriptions as class and methods decorators?
+
 class AbsCmtModule( object ):
     __metaclass__ = abc.ABCMeta
     

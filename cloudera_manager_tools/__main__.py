@@ -1,16 +1,18 @@
 #!/usr/bin/env python
+
 # TODO: modularize
 from argparse import ArgumentParser, RawTextHelpFormatter
 from pprint import pprint
 from cm_api.api_client import ApiResource
 
 import cloudera_manager_tools as cmt
+from cloudera_manager_tools.__version__ import VERSION
 
 # TODO: get password from STDIN
 # TODO: add config file options
 # TODO: ??? add argcomplete ???
 def _create_argparser():
-    parser = ArgumentParser(description="Cloudera Manager Tools: easily perform common tasks using the CM API.", formatter_class=RawTextHelpFormatter)
+    parser = ArgumentParser(description='Cloudera Manager Tools: easily perform common tasks using the CM API.', formatter_class=RawTextHelpFormatter)
     
     cm_conn_group = parser.add_argument_group('Cloudera Manager API server connection')
     cm_conn_group.add_argument( '-H', '--host', dest='cm_host', required=True, help='Cloudera Manager server host', metavar='HOST')
@@ -18,6 +20,7 @@ def _create_argparser():
     cm_conn_group.add_argument( '-U', '--username', dest='cm_usr', default='admin', help='Cloudera Manager username (default: %(default)s)', metavar='USERNAME')
     cm_conn_group.add_argument( '-P', '--password', dest='cm_pwd', default='admin', help='Cloudera Manager password (default: %(default)s)', metavar='PASSWORD')
     
+    parser.add_argument( '-v', '--version', action='version', version='Cloudera Manager Tools ' + VERSION)
     # TODO: add possibility to query multiple clusters?
     parser.add_argument( '-C', '--cluster', dest='cluster', default='cluster', help='Cluster name (default: %(default)s)', metavar='CLUSTERNAME')
     

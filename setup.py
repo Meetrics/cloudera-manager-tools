@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
+from cloudera_manager_tools.__version__ import VERSION
 
 setup(
     name = 'cloudera_manager_tools',
-    version = '1.0.0',
+    version = VERSION,
     description = 'Cloudera Manager CLI utility to easily perform common operations using its API interface.',
     url = 'https://github.com/Meetrics/cloudera-manager-tools',
     packages = find_packages(),
