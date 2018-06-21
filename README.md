@@ -1,5 +1,5 @@
 # cloudera-manager-tools
-Cloudera Manager CLI tools to easily perform common operations using its API interface.
+Cloudera Manager CLI tools to easily perform common operations using its API.
 
 # Setup
 ## Requirements
