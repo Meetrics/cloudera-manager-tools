@@ -33,14 +33,15 @@ def list_cmt_actions(service):
 # Helper functions to pretty print CMT modules actions output
 
 # human redable print
-def hprint(obj, indentN=1):
-   print "\n".join(hformat(obj, indentN))
+def hprint(obj):
+   print "\n".join(hformat(obj))
 
 # human readable list of lines
-def hformat(obj, indentN=1):
+# TODO: store indentation level as int for each line, instead of actually indent it here (the real indentation should be performed in the hprint funtion)
+def hformat(obj):
 
     def indent(hlines):
-        return [ " " * indentN + line for line in hlines ]
+        return [ " " * 4 + line for line in hlines ]
 
     hlines = []
     # Let the functional madness begin!

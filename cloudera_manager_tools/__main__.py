@@ -9,7 +9,7 @@ import cloudera_manager_tools.__helpers__ as cmt_helpers
 
 # TODO: PEP8 code documentation
 # TODO: get password from STDIN
-# TODO: add config file options
+# TODO: add config file options to specify API server connection
 # TODO: ??? add argcomplete ???
 def _create_argparser():
     parser = ArgumentParser(description='Cloudera Manager Tools: easily perform common tasks using the CM API.', formatter_class=RawTextHelpFormatter)
@@ -38,7 +38,7 @@ def main():
     cm_client = ApiResource(args.cm_host, username=args.cm_usr, password=args.cm_pwd, server_port=args.cm_port)
     try:
         res = cmt_helpers.exec_svc_action(cm_client, args.cluster, args.cmt_service, args.cmt_action)
-	cmt_helpers.hprint(res, indentN=4)
+	cmt_helpers.hprint(res)
     except Exception as e:
 	parser.error( str(e) )
 
