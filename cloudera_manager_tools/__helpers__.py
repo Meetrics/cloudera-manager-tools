@@ -45,7 +45,7 @@ def hformat(obj):
 
     hlines = []
     # Let the functional madness begin!
-    if obj:
+    if obj is not None:
         if isinstance(obj, dict):
             hlines = [ hline for sublist in [ [k] + indent( hformat(obj[k]) ) for k in sorted(obj.keys()) ] for hline in sublist ]
         elif isinstance(obj, list):
