@@ -27,3 +27,10 @@ class Hdfs( AbsCmtServiceModule ):
     cmdlist = hdfs.restart_roles( map(lambda dn: dn.name, self._get_datanodes()) )
     for cmd in cmdlist:
       cmd.wait()
+
+  def datanodes_cfg_staleness_status(self):
+    dns_staleness_status = []
+    for dnode in self._get_datanodes():
+      dns_staleness_status.append({ dnode.name: dnode.configStalenessStatus })
+
+    return dns_staleness_status
